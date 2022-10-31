@@ -1,7 +1,8 @@
 ## [ts-redux-todolist-project DEMO](https://ts-course-redux.vercel.app/)
 
 ## Настройка окружения
-- установка реакт и ТС
+- npm i react-redux 
+- npm i @reduxjs/toolkit
 
 ## Пубрикация проекта на vercel
 - create new project
