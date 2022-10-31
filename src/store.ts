@@ -1,7 +1,10 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 
+import todoReduser from "features/Todo/todoSlice";
+
 const rootReducer = combineReducers({
     // ждем редюсеры
+    todos: todoReduser,
 });
 
 export const store = configureStore({
