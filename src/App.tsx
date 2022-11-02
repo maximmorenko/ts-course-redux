@@ -1,6 +1,8 @@
 import TodoList from './features/Todo/TodoList'
 import NewTodo from "features/Todo/NewTodo";
 import './App.css';
+import NewAsyncTodo from 'features/AsyncTodo/NewAsyncTodo';
+import AsyncTodoList from 'features/AsyncTodo/AsyncTodoList';
 
 function App() {
 
@@ -9,6 +11,9 @@ function App() {
       <h1>Todo List</h1>
       <NewTodo />
       <TodoList />
+      <hr />
+      <NewAsyncTodo />
+      <AsyncTodoList />
     </div>
   );
 }
