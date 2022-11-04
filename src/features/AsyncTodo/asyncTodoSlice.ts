@@ -33,6 +33,7 @@ const todoSlice = createSlice({
         state.list.push(action.payload);
       })
       .addCase(removeTodo.fulfilled, (state, action) => {
+        // в пейлоаде id, фильтруем по нему
         state.list = state.list.filter(todo => todo.id !== action.payload)
       })
       .addCase(toggleTodo.fulfilled, (state, action) => {

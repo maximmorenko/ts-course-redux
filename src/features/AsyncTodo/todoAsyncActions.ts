@@ -56,9 +56,9 @@ export const createTodo = createAsyncThunk<
 );
 
 export const removeTodo = createAsyncThunk<
-  Todo['id'],
-  Todo['id'],
-  { rejectValue: string }
+  Todo['id'], // выход
+  Todo['id'], // вход
+  { rejectValue: string } // доп
 >(
   'todo/removeTodo',
   async (id, { rejectWithValue }) => {
@@ -67,6 +67,7 @@ export const removeTodo = createAsyncThunk<
     });
 
     if (!response.ok) {
+      // если респонс не ок, то передаем текст об ошибке
       return rejectWithValue('Impossible to delete todo with id ' + id);
     }
 
@@ -75,14 +76,16 @@ export const removeTodo = createAsyncThunk<
 );
 
 export const toggleTodo = createAsyncThunk<
-  Todo,
-  Todo['id'],
+  Todo, // выход измененная туду (комплитед)
+  Todo['id'], // вход строка id выбраной тудушки
   { state: { asyncTodos: TodoSlice }, rejectValue: string }
 >(
   'todo/toggleTodo',
   async (id, { getState, rejectWithValue }) => {
+    // ищем туду
     const todo = getState().asyncTodos.list.find(el => el.id === id);
 
+    // если туду есть, то делаем запрос
     if (todo) {
       const response = await fetch('https://jsonplaceholder.typicode.com/todos/' + id, {
         method: 'PATCH',
